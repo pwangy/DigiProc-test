@@ -3,10 +3,10 @@ import { Change } from './Change'
 
 export const Log = () => {
     return (
-        <article class="comments">
-        {posts.map((post) => (
-          <Change key={post.id} {...post} />
-        ))}
-      </article> 
+        <article className="comments">
+            {posts.map((post) => (
+                <Change key={post.id} {...post} />
+            ))}
+        </article> 
     )
 }
