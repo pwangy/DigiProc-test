@@ -1,18 +1,15 @@
-import React from 'react'
-
 import posts from './data/comments.json'
+
+import { Header } from './components/Header'
 
 export const App = () => {
   return (
-    <div>
-      <article>
-        <h1>Changelog</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Marius vitae sapien vitae odio viverra placerat. Suspendisse velit leo, placer at ac porttitor et, elementum in enim.</p>
-      </article>
-      <article>
+    <div class="container">
+      <Header />
+      <article class="comments">
         {posts.map((post) => (
           <div key={post.id} {...post}>
-            <p>{post.first} {post.last}: {post.comment}</p>
+            <p><span>{post.first} {post.last}: </span>{post.comment}</p>
             <p>{post.timestamp} | {post.id}</p>
           </div>
         ))}
