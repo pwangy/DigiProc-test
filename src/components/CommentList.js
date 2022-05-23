@@ -33,11 +33,11 @@ export const CommentList = () => {
 	const names = posts.forEach((post) => {
 		copyNames.push(post.first)
 	})
-
+	console.log(names)
 	const trimTwo = copyNames.slice(-7)
 	const unique = Array.from(new Set(trimTwo))
 	const remainingCommenters = unique.length - 2
-	const summary = `${posts.length -3} more comments from ${unique.at(0)}, ${unique.at(
+	const summary = ` + ${posts.length -3} more comments from ${unique.at(0)}, ${unique.at(
 		1
 	)} and ${remainingCommenters} others`
 
