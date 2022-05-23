@@ -4,7 +4,7 @@ import ReactTimeAgo from 'react-time-ago'
 
 TimeAgo.addDefaultLocale(en)
 
-export const Change = (props) => {
+export const Comment = (props) => {
     // const view, setView = useState(false)
 	// something that detects view. default summary else, show all /full comments.
 	// toggle function
