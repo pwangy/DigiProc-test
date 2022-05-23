@@ -3,6 +3,7 @@ import { useState } from 'react'
 import posts from '../data/comments.json'
 import { Comment } from './Comment'
 import { FullComment } from './FullComment'
+import { Shape } from './Shape'
 
 export const CommentList = () => {
 	const [view, setView] = useState(false)
@@ -27,38 +28,35 @@ export const CommentList = () => {
 		<FullComment key={post.id} {...post} />
 	))
 
-	const names = () => {
-		const copyNames = []
+	const copyNames = []
 
-		posts.forEach((post) => {
-			copyNames.push(post.first)
-		})
-		const trimTwo = copyNames.slice(-7)
-		console.log(trimTwo)
-		const unique = Array.from(new Set(trimTwo))
-		console.log(unique)
-		const remainingCommenters = unique.length - 2
+	const names = posts.forEach((post) => {
+		copyNames.push(post.first)
+	})
 
-		return `${unique.at(0)}, ${unique.at(
-			1
-		)} and ${remainingCommenters} others`
-	}
+	const trimTwo = copyNames.slice(-7)
+	const unique = Array.from(new Set(trimTwo))
+	const remainingCommenters = unique.length - 2
+	const summary = `${posts.length -3} more comments from ${unique.at(0)}, ${unique.at(
+		1
+	)} and ${remainingCommenters} others`
 
 	return (
 		<article className='comments'>
-			{/* array method to print out comments */}
 			{!view ? shortComments : longComments}
-			<section>
-				{/* placeholder for X more comments from name name and name. */}
-				<p>
-					+ {posts.length - 3} more comments from {names}
-				</p>
-				{/* button to toggle view state */}
-				{!view ? (
-					<button onClick={handleMore}>View full activity log</button>
-				) : (
-					<button onClick={handleLess}>View summary</button>
-				)}
+			<section className='row'>
+				{!view ? <p className='summary'>{summary}</p> : <p>&nbsp;</p>}
+				<div>
+					{!view ? (
+						<div className='button' onClick={handleMore}>
+							View full activity log <Shape />
+						</div>
+					) : (
+						<div className='button' onClick={handleLess}>
+							View summary <Shape />
+						</div>
+					)}
+				</div>
 			</section>
 		</article>
 	)
