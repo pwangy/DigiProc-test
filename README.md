@@ -1,9 +1,9 @@
 # Changelog Mock-Up
 
-## Available Scripts
+## Steps to get up and running
 
 In the project directory, you can run:
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
